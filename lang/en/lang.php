@@ -197,7 +197,7 @@ return [
     'number_of_choice' => ' Number of Choice',
     'add_row' => 'Add Row',
     'save_questions' => 'Save Questions',
-    'about_us' => 'About Us',
+    'about_us' => 'Studio',
     'features' => 'Blogs',
     'feature' => 'Blog',
     'manage_info_of_about_us' => 'Manage Info of About Us',
