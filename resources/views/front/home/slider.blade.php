@@ -11,13 +11,13 @@
 
             <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
 
-                <div style="background-image: url('{{ asset($item->image) }}'); height: 700px; background-size: cover; background-position: center ; background-repeat: no-repeat;">
+                <div style="background-image: url('{{ asset($item->image) }}'); height: 900px; background-size: cover; background-position: center ; background-repeat: no-repeat;">
                     {{-- <img class="w-100" height="600px" src="{{ asset($item->image) }}" alt="Image"> --}}
                     {{-- <div class="text" style="background: #00000082;height: 800px;"> --}}
                         <div class="carousel-caption p-5 align-items-start">
-                            <div class="container">
+                            <div class="container-fluid pt-5">
                                 <div class="row p-md-5">
-                                    <div class="col-12 pt-5  animate__animated  animate__bounceInUp">
+                                    <div class="col-12 p-md-5  animate__animated  animate__bounceInUp">
                                         <b class=" fs-3 main-color mb-4 an ">{{ $item->title }}</b><br><br>
                                         <p class=" text-dark w-50 mb-5">{{ $item->description }}</p>
 

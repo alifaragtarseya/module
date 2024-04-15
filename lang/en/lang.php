@@ -198,8 +198,8 @@ return [
     'add_row' => 'Add Row',
     'save_questions' => 'Save Questions',
     'about_us' => 'About Us',
-    'features' => 'Features',
-    'feature' => 'Feature',
+    'features' => 'Blogs',
+    'feature' => 'Blog',
     'manage_info_of_about_us' => 'Manage Info of About Us',
     'assignments' => '  Assignments',
     'assignment' =>'    Assignment',
@@ -396,5 +396,6 @@ return [
     'culture_description_en' => 'Culture Description English',
     'Multi_Disciplinary' => 'Multi-Disciplinary',
     'team' => 'Team',
+    'latest_news' => 'Latest News',
 
 ];

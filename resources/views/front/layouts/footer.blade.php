@@ -1,5 +1,5 @@
  <!-- Footer Start -->
- <div class=" footer w3-black pt-5 wow fadeIn" data-wow-delay="0.1s" >
+ {{-- <div class=" footer w3-black pt-5 wow fadeIn" data-wow-delay="0.1s" >
     <div class="container py-5">
         <div class="row g-5">
             <div class="col-lg-6 col-md-12">
@@ -82,28 +82,24 @@
                 <p><i class="fa fa-envelope me-3"></i> {{ getSettingValue('email_1') }}</p>
             </div>
 
-            {{-- <div class="col-lg-3 col-md-6">
-                <h5 class="text-light mb-4">Newsletter</h5>
-                <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
-                <div class="position-relative mx-auto" style="max-width: 400px;">
-                    <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                    <button type="button" class="btn btn-secondary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
-                </div>
-            </div> --}}
+
         </div>
     </div>
-    <div class=" copyright" >
-        <div class="container">
-            <div class="d-flex justify-content-between text-dark">
-                <b>
-                    {{ __('lang.copyrights') }}© {{ date('Y') }}
-                    {{ __('lang.all_right_save') }}
 
-                </b>
-                <a href="#" style="color: #43808D" target="_blank">
-                   <b class="text-dark"> {{ __('lang.powerd_by') }}</b>{{ __('lang.tarseya') }}
-                </a>
-            </div>
+</div> --}}
+<div class=" copyright p-5" >
+    <div class="container">
+        <div class="text-center text-dark">
+            <b>
+                {{ __('lang.copyrights') }}© {{ date('Y') }}
+                {{ __('lang.all_right_save') }}
+
+                <a href="#" style="" target="_blank">
+                    {{ __('lang.tarseya') }}
+                 </a>
+
+            </b>
+
         </div>
     </div>
 </div>

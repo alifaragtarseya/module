@@ -180,7 +180,7 @@
 
                                     </div>
 
-                                    <div class="col-md-4 pt-3">
+                                    {{-- <div class="col-md-4 pt-3">
                                         <div class="form-group">
                                             <label for="bg_footer">{{ __('lang.bg_footer') }}</label>
                                             <div style="width: 100%;border: 1px dashed #ccc; padding: 10px">
@@ -210,7 +210,7 @@
                                                 class=" form-control mt-3" name="company_profile">
                                         </div>
 
-                                    </div>
+                                    </div> --}}
 
 
                                 </div>

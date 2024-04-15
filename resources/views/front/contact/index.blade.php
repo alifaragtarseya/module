@@ -44,28 +44,16 @@
     </style>
 @endsection
 @section('content')
-    <!-- Page Header Start -->
-    <div class="container-fluid page-header p-0 wow fadeIn" style="background-image: url({{ asset($metaBanner->image) }}); "
-        data-wow-delay="0.1s">
-        <div class="meta--banner">
-            <div class="container py-5">
-                <h1 class="display-4 animated slideInDown mb-4 text-center text-white">{{ __('lang.contact_us') }}</h1>
-
-            </div>
-        </div>
-    </div>
-    <!-- Page Header End -->
 
 
     <!-- Contact Start -->
     <div class="container-xxl py-5">
         <div class="container">
-            <div class="row pt-4 mb-5">
+            {{-- <div class="row pt-4 mb-5">
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="contact-info-box mb-30">
                         <div class="icon">
                             <i class="far fa-envelope-open"></i>
-                            {{-- <i class="fa fa-map-marker-alt"></i> --}}
                         </div>
                         <h3>{{ __('lang.email') }}</h3>
                         <p>
@@ -77,7 +65,6 @@
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="contact-info-box mb-30">
                         <div class="icon">
-                            {{-- <i class="far fa-envelope-open"></i> --}}
                             <i class="fa fa-map-marker-alt"></i>
                         </div>
                         <h3>{{ __('lang.address') }}</h3>
@@ -90,7 +77,6 @@
                     <div class="contact-info-box mb-30">
                         <div class="icon">
                             <i class="fa fa-phone-alt"></i>
-                            {{-- <i class="fa fa-map-marker-alt"></i> --}}
                         </div>
                         <h3>{{ __('lang.phone') }}</h3>
                         <p>
@@ -98,13 +84,21 @@
                         </p>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <div class="row g-5">
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="min-height: 450px;">
                     <h1 class="display-6 mb-5">{{ isRtl() ? $metaBanner->title : $metaBanner->title_en }}</h1>
-                    <p class="mb-4">
+                    <p class="mb-4 text-dark">
                         {{ isRtl() ? $metaBanner->description : $metaBanner->description_en }}
                     </p>
+                    <p><a class="nav-link text-dark p-0" href="mailto:{{ getSettingValue('email_1') }}"><span>{{ getSettingValue('email_1') }}</span></a></p>
+                    <p class=" text-dark">
+                        {{ getSettingValue('address_'.app()->getLocale()) }}
+                    </p>
+                    {{-- <img src="{{ getSettingValue('') }}" width="100%" alt=""> --}}
+                </div>
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+
                     <form>
                         <div class="row g-3">
                             <div class="col-md-6">
@@ -137,22 +131,19 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="min-height: 450px;">
-                    <div class="contact_image" style="background-image: url({{ getSettingValue('contact_image') }});"></div>
-                    {{-- <img src="{{ getSettingValue('') }}" width="100%" alt=""> --}}
-                </div>
-                <div class="col-lg-12 pt-5 wow fadeIn" data-wow-delay="0.5s" style="min-height: 450px;">
-                    {{-- <div class="position-relative rounded overflow-hidden h-100">
-                        <iframe class="position-relative w-100 h-100"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001156.4288297426!2d-78.01371936852176!3d42.72876761954724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccc4bf0f123a5a9%3A0xddcfc6c1de189567!2sNew%20York%2C%20USA!5e0!3m2!1sen!2sbd!4v1603794290143!5m2!1sen!2sbd"
-                            frameborder="0" style="min-height: 450px; border:0;" allowfullscreen="" aria-hidden="false"
-                            tabindex="0"></iframe>
-                    </div> --}}
 
-                    {!! getSettingValue('ifram_map') !!}
-                </div>
             </div>
         </div>
+    </div>
+    <div class="col-lg-12 pt-5 wow fadeIn" data-wow-delay="0.5s" style="min-height: 450px;">
+        {{-- <div class="position-relative rounded overflow-hidden h-100">
+            <iframe class="position-relative w-100 h-100"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001156.4288297426!2d-78.01371936852176!3d42.72876761954724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccc4bf0f123a5a9%3A0xddcfc6c1de189567!2sNew%20York%2C%20USA!5e0!3m2!1sen!2sbd!4v1603794290143!5m2!1sen!2sbd"
+                frameborder="0" style="min-height: 450px; border:0;" allowfullscreen="" aria-hidden="false"
+                tabindex="0"></iframe>
+        </div> --}}
+
+        {!! getSettingValue('ifram_map') !!}
     </div>
     <!-- Contact End -->
 @endsection

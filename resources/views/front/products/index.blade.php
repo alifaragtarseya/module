@@ -16,7 +16,7 @@
 
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="{{ asset($pro->image) }}" class="card-img-top" alt="{{ $pro->title }}">
+                        <img src="{{ asset($pro->image) }}" class="card-img-top" style="height: 350px !important" alt="{{ $pro->title }}">
                         <div class="card-body">
                             <h5 class="card-title">{{ $pro->title }}</h5>
                         </div>

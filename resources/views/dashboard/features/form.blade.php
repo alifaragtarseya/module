@@ -18,8 +18,8 @@
             <div class="row">
                 <div class="col-12  ">
 
-                    {!! Form::label('image', __('lang.image') , ['class' => 'form-label'] ) !!} (<small class="text-danger">{{ __('lang.best_size') }} : w:40 * h:40 , يجب أن تكون الصورة بيضاء</small> ) <br>
-                    <img class=" image-preview-image m-auto rounded-circle" width="80" height="80"   src="{{ asset($resource->image ?? 'assets/img/default.jpg' ) }}">
+                    {!! Form::label('image', __('lang.image') , ['class' => 'form-label'] ) !!} (<small class="text-danger">{{ __('lang.best_size') }} : w:650 * h:700 </small> ) <br>
+                    <img class=" image-preview-image m-auto " width="200" height="200"   src="{{ asset($resource->image ?? 'assets/img/default.jpg' ) }}">
                     <br>
                     <label for="image"class="btn btn-primary text-white mt-2">
                         {{-- <i class="ti ti-cloud-upload fs-6 cursor-pointer"></i> --}}

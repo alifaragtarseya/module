@@ -5,7 +5,7 @@
 
         </span>
         <span class="app-brand-text demo menu-text fw-bold ms-2">
-            <img src="{{ asset(getSettingValue('logo')) }}" alt="">
+            <img src="{{ asset(getSettingValue('logo')) }}" width="200px" alt="">
         </span>
       </a>
 

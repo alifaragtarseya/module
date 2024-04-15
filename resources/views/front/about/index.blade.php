@@ -127,14 +127,14 @@
             </div> --}}
 
             <div class="row g-5 pt-5">
-                <div class="col-md-12 ">
+                <div class="col-md-12 pt-5">
                     <h5><b class="main-color">{{ __('lang.Multi_Disciplinary') }}</b> </h5>
                     <h2><b class="main-color">{{ __('lang.team') }}</b> </h2>
                 </div>
 
                 @foreach ($teams as $item)
                 <div class="col-lg-4 pt-2  wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="p-2 ">
+                    <div class="p-2  text-center">
                         @if ($item->image)
                             <img class=" "  src="{{asset($item->image) }}" alt="" style="object-fit: cover;width: 100px">
 

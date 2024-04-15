@@ -71,8 +71,8 @@
             <div class="col-lg-4 col-md-6 pt-4 wow zoomInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
                 <a href="{{ route('front.project.show', $project->id) }}">
                     <div class=" rounded">
-                        <img class="img-fluid rounded-3 " id="myImg-{{ $project->id }}"  src="{{ $project->image }}" style="height: 300px;width: 100%;" alt="">
-    
+                        <img class="img-fluid rounded-3 " id="myImg-{{ $project->id }}"  src="{{ $project->image }}" style="height: 350px;width: 100%;" alt="">
+
                         <b>{{ $project->title }}</b>
                     </div>
                 </a>
@@ -80,7 +80,7 @@
             @endforeach
         </div>
 
-        
+
      </section>
 
          <!-- The Modal -->
