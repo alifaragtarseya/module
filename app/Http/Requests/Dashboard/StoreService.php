@@ -25,7 +25,7 @@ class StoreService extends FormRequest
     public function rules()
     {
         return [
-            'image' => ['nullable','image','mimes:png,jpg,jpeg',Rule::requiredIf(function(){ return !isset($this->id);})],
+            'image' => ['nullable','image','mimes:png,jpg,jpeg'],
             'ar.title' => ['required'],
             // 'ar.description' => ['required'],
             'ar.short_description' => ['required'],

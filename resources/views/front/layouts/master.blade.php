@@ -7,7 +7,7 @@
     {!! OpenGraph::generate() !!}
     {!! Twitter::generate() !!}
     {!! stripslashes(JsonLd::generate()) !!}
-        <meta name="author" content="Tawazun Digital Marting">
+        <meta name="author" content="{{ getSettingValue('site_name_en') }}">
 
     {{-- <title>@yield('title')</title> --}}
 
@@ -22,13 +22,22 @@
      <!-- Icon Font Stylesheet -->
      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
      <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+     <link href="https://db.onlinewebfonts.com/a/knx47Mn2" rel="stylesheet" type="text/css"/>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Source+Sans+3&family=Tajawal:wght@500&display=swap');
+        body,html,*{
+            font-family: "Tajawal", sans-serif;
+            font-weight: 600 !important;
+            font-style: normal;
+            letter-spacing: 1px;
+            line-height: 100%;
+        }
             :root {
-    --primary:#000;
-    --secondary: #ECF2F4;
-    --light: #F6F7FC;
-    --dark: #15233C;
-}
+                --primary:#000;
+                --secondary: #ECF2F4;
+                --light: #F6F7FC;
+                --dark: #15233C;
+            }
     </style>
      @include('front.layouts.css')
 </head>

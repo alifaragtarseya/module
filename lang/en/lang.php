@@ -397,5 +397,7 @@ return [
     'Multi_Disciplinary' => 'Multi-Disciplinary',
     'team' => 'Team',
     'latest_news' => 'Latest News',
+    'service_desc' => 'Working on all project phases to ensure nurturing your ideas and needs to a compete, coherence project.',
+    'address_url' => 'Address URL',
 
 ];

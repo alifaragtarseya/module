@@ -116,6 +116,16 @@
                                         </div>
 
                                     </div>
+                                    <div class="col-md-12 pt-3">
+                                        <div class="form-group">
+                                            {!! Form::label('address_url', __('lang.address_url'), ['class' => 'form-label']) !!}
+                                            {!! Form::text('address_url', old('address_url', optional($settings->where('key', 'address_url')->first())->value), [
+                                                'class' => 'form-control',
+
+                                            ]) !!}
+                                        </div>
+
+                                    </div>
 
                                 </div>
                             </div>

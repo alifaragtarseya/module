@@ -52,7 +52,7 @@ rel="stylesheet" type="text/css" />
                             <label for="name">
                                 {{ __('lang.'.$locale.'.short_description') }}
                             </label>
-                            {!! Form::textarea("{$locale}[short_description]", old("{$locale}[short_description]", optional($resource->translate($locale))->short_description), ['class' => 'form-control ']) !!}
+                            {!! Form::textarea("{$locale}[short_description]", old("{$locale}[short_description]", optional($resource->translate($locale))->short_description), ['class' => 'form-control tinymce_ar']) !!}
                         </div>
                     </div>
                 @endforeach

@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->foreignId('service_category_id')->constrained('service_categories')->cascadeOnDelete();
             $table->timestamps();
         });

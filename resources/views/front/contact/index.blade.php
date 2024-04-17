@@ -96,6 +96,17 @@
                         {{ getSettingValue('address_'.app()->getLocale()) }}
                     </p>
                     {{-- <img src="{{ getSettingValue('') }}" width="100%" alt=""> --}}
+                    <div class=" d-flex gap-3 pt-5">
+                        <a href="{{ getSettingValue('instagram') }}" class="text-dark">
+                            <i class="fab fa-instagram fa-lg"></i>
+                        </a>
+                        <a href="{{ getSettingValue('linkedin') }}" class="text-dark">
+                            <i class="fab fa-linkedin-in fa-lg"></i>
+                        </a>
+                        <a href="{{ getSettingValue('address_url') }}" target="_blank" class="text-dark">
+                            <i class="fa fa-link fa-lg"></i>
+                        </a>
+                    </div>
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
 
