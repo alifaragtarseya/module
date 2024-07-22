@@ -399,5 +399,9 @@ return [
     'latest_news' => 'Latest News',
     'service_desc' => 'Working on all project phases to ensure nurturing your ideas and needs to a compete, coherence project.',
     'address_url' => 'Address URL',
+    'ar.short_description' => 'Short Description',
+    'en.short_description' => 'Short Description',
+    'award' => 'Award',
+    'awards' => 'Awards',
 
 ];

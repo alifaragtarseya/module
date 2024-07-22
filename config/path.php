@@ -11,8 +11,8 @@
     //partener path
     "PARTENER_PATH" => 'uploads/partener/',
 
-    //certifications path
-    "CERTIFICATION_PATH" => 'uploads/certifications/',
+    //awards path
+    "AWARDS_PATH" => 'uploads/awards/',
 
     //services-categories path
     "SER_CAT_PATH" => 'uploads/services-categories/',

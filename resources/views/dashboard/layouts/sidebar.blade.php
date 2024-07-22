@@ -148,30 +148,7 @@
         </ul>
       </li>
 
-      {{-- projects --}}
-      {{-- <li class="menu-item {{ request()->routeIs('admin.project*') ||request()->routeIs('admin.pro_cat*') || request()->is('admin-panel/metatags/project')?'active open':'' }}">
-        <a href="javascript:void(0);" class="menu-link menu-toggle">
-          <i class="menu-icon tf-icons bx bx-briefcase"></i>
-          <div data-i18n="home">{{ __('lang.projects_manage') }}</div>
-        </a>
-        <ul class="menu-sub">
-          <li class="menu-item {{ request()->routeIs('admin.pro_cat')?'active':'' }}">
-            <a href="{{ route('admin.pro_cat') }}"  class="menu-link ">
-              <div data-i18n="CRM">{{ __('lang.projects_categories') }}</div>
-            </a>
-          </li>
-          <li class="menu-item {{ request()->routeIs('admin.project')?'active':'' }}">
-            <a href="{{ route('admin.project') }}"  class="menu-link ">
-              <div data-i18n="CRM">{{ __('lang.projects') }}</div>
-            </a>
-          </li>
-          <li class="menu-item {{ request()->is('admin-panel/metatags/project')?'active':'' }}">
-            <a href="{{ route('admin.meta','project') }}" class="menu-link">
-              <div data-i18n="Analytics">{{ __('lang.metatag') }}</div>
-            </a>
-          </li>
-        </ul>
-      </li> --}}
+
 
       {{-- products management --}}
       <li class="menu-item {{request()->routeIs('admin.cat*') || request()->routeIs('admin.brand*') || request()->routeIs('admin.product*') || request()->is('admin-panel/metatags/project')?'active open':'' }}">
@@ -180,16 +157,7 @@
           <div data-i18n="home">{{ __('lang.projects_manage') }}</div>
         </a>
         <ul class="menu-sub">
-          {{-- <li class="menu-item {{ request()->routeIs('admin.brand')?'active':'' }}">
-            <a href="{{ route('admin.brand') }}"  class="menu-link ">
-              <div data-i18n="CRM">{{ __('lang.brands') }}</div>
-            </a>
-          </li>--}}
-          {{-- <li class="menu-item {{ request()->routeIs('admin.cat')?'active':'' }}">
-              <a href="{{ route('admin.cat') }}"  class="menu-link ">
-                <div data-i18n="CRM">{{ __('lang.categories') }}</div>
-              </a>
-            </li> --}}
+
             <li class="menu-item {{ request()->routeIs('admin.product*')?'active':'' }}">
               <a href="{{ route('admin.product') }}"  class="menu-link ">
                 <div data-i18n="CRM">{{ __('lang.projects') }}</div>
@@ -204,29 +172,14 @@
       </li>
 
 
-      {{-- parteners --}}
-      <li class="menu-item {{ request()->routeIs('admin.partener*')?'active':'' }}">
-        <a href="{{ route('admin.partener') }}"  class="menu-link  ">
-            <i class="menu-icon tf-icons bx bx-group"></i>
-          <div data-i18n="parteners">{{ __('lang.parteners') }}</div>
-        </a>
-      </li>
 
 
-      {{-- features --}}
-      <li class="menu-item {{ request()->routeIs('admin.feature*')?'active':'' }}">
-        <a href="{{ route('admin.feature') }}"  class="menu-link  ">
-            <i class="menu-icon tf-icons bx bx-diamond"></i>
-          <div data-i18n="features">{{ __('lang.features') }}</div>
-        </a>
-      </li>
 
-
-      {{-- counter --}}
-      <li class="menu-item {{ request()->routeIs('admin.counter*')?'active':'' }}">
-        <a href="{{ route('admin.counter') }}"  class="menu-link  ">
-            <i class="menu-icon tf-icons bx bx-tachometer"></i>
-          <div data-i18n="counters">{{ __('lang.counters') }}</div>
+      {{-- award --}}
+      <li class="menu-item {{ request()->routeIs('admin.award*')?'active':'' }}">
+        <a href="{{ route('admin.award') }}"  class="menu-link  ">
+            <i class="menu-icon tf-icons bx bx-gift"></i>
+          <div data-i18n="awards">{{ __('lang.awards') }}</div>
         </a>
       </li>
 

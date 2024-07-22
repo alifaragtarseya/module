@@ -3,15 +3,16 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Models\Certification;
+use App\Http\Requests\Dashboard\StoreAward;
+use App\Models\Award;
 use Illuminate\Http\Request;
 
-class CertificationController extends Controller
+class AwardController extends Controller
 {
 
     protected $model ;
 
-    public function __construct(Certification $model){
+    public function __construct(Award $model){
         $this->model = $model;
     }
 
@@ -21,7 +22,7 @@ class CertificationController extends Controller
         $text = __('lang.are_you_sure');
         confirmDelete($title, $text);
 
-        return view('dashboard.certifications.index', [
+        return view('dashboard.awards.index', [
             'data' => $this->model->paginate(20)
         ]);
     }
@@ -32,7 +33,7 @@ class CertificationController extends Controller
      */
     public function create()
     {
-        return view('dashboard.certifications.form' ,[
+        return view('dashboard.awards.form' ,[
             'resource' => $this->model
         ]);
     }
@@ -43,23 +44,21 @@ class CertificationController extends Controller
      * @param Request $request
      * @return Renderable
      */
-    public function store(Request $request)
+    public function store(StoreAward $request)
     {
 
        // Validate the image
-       $inputs = $request->validate([
-           'image' => 'required|image|mimes:jpeg,png,jpg',
-       ]);
+       $inputs = $request->validated();
        $id = $this->model->max('id')+1;
        // Handle the image upload
-       $inputs['image'] = uploadImage($inputs['image'], config('path.CERTIFICATION_PATH'),$id);
+       $inputs['image'] = uploadImage($inputs['image'], config('path.AWARDS_PATH'),$id);
     //    dd($inputs);
 
        // Save the data
        $this->model->create($inputs);
 
        toast(__('lang.created'), 'success');
-       return redirect()->route('admin.certification');
+       return redirect()->route('admin.award');
     }
 
 
@@ -71,7 +70,7 @@ class CertificationController extends Controller
      */
     public function edit($id)
     {
-        return view('dashboard.certifications.form' ,[
+        return view('dashboard.awards.form' ,[
             'resource' => $this->model->findOrFail($id)
         ]);
     }
@@ -80,23 +79,20 @@ class CertificationController extends Controller
 
     /**
      * Update the specified resource in storage.
-     * @param Request $request
+     * @param StoreAward $request
      * @param int $id
      * @return Renderable
      */
-    public function update(Request $request, $id)
+    public function update(StoreAward $request, $id)
     {
-        $inputs = $request->validate([
-            'image' => 'nullable|image|mimes:jpeg,png,jpg',
-        ]);
+        $inputs = $request->validated();
         $resource = $this->model->findOrFail($id);
         if(isset($inputs['image'])){
-
-            $inputs['image'] = uploadImage($inputs['image'], config('path.CERTIFICATION_PATH'),$resource->id, $resource->image);
-            $resource->update($inputs);
+            $inputs['image'] = uploadImage($inputs['image'], config('path.AWARDS_PATH'),$resource->id, $resource->image);
         }
+        $resource->update($inputs);
         toast(__('lang.updated'), 'success');
-        return redirect()->route('admin.certification');
+        return redirect()->route('admin.award');
     }
 
     /**
@@ -110,7 +106,7 @@ class CertificationController extends Controller
         deleteImage($resource->image);
         $resource->delete();
         toast(__('lang.deleted'), 'success');
-        return redirect()->route('admin.certification');
+        return redirect()->route('admin.award');
     }
 
 

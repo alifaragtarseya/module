@@ -15,6 +15,7 @@
             <a href="{{ route('front.about') }}" class="nav-item nav-link {{ request()->routeIs('front.about') ? 'active  ' : '' }}">{{ __('lang.studio') }}</a>
             <a href="{{ route('front.project') }}"  class="nav-link {{ request()->routeIs('front.project*') ? 'active' : '' }}" >{{ __('lang.projects') }}</a>
             <a href="{{ route('front.service') }}" class="nav-item nav-link {{ request()->routeIs('front.service') ? ' active ' : '' }}">{{ __('lang.services') }}</a>
+            <a href="{{ route('front.award') }}" class="nav-item nav-link {{ request()->routeIs('front.award') ? ' active ' : '' }}">{{ __('lang.awards') }}</a>
 
 
             {{-- <a href="{{ route('front.project') }}" class="nav-item {{ request()->routeIs('front.gallery*') ? 'active' : '' }} nav-link">{{ __('lang.research') }}</a> --}}

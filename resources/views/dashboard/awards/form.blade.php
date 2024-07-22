@@ -3,7 +3,7 @@
 @endphp
 
 
-<div class="modal-dialog modal-dialog-centered">
+<div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content ">
       <div class="modal-header">
         <h5 class="modal-title">
@@ -12,14 +12,14 @@
         <button type="button" class="btn-close {{ isRtl() ? 'ms-1' : '' }}" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form class="form" action="{{ $resource->id ? route('admin.certification.update', $resource->id) : route('admin.certification.store') }}"
+        <form class="form" action="{{ $resource->id ? route('admin.award.update', $resource->id) : route('admin.award.store') }}"
             method="post" enctype="multipart/form-data">
             @csrf
             <div class="row">
                 <div class="col-12  ">
 
                     {!! Form::label('image', __('lang.image') , ['class' => 'form-label'] ) !!} (<small class="text-danger">{{ __('lang.best_size') }} : w:600 * h:500</small>)<br>
-                    <img class=" image-preview-image  " width="100%" height="400"   src="{{ asset($resource->image ?? 'assets/img/default.jpg' ) }}">
+                    <img class=" image-preview-image  " width="50%" height="100"   src="{{ asset($resource->image ?? 'assets/img/default.jpg' ) }}">
                     <br>
                     <label for="image"class="btn btn-primary text-white mt-2">
                         {{-- <i class="ti ti-cloud-upload fs-6 cursor-pointer"></i> --}}
@@ -29,7 +29,27 @@
                     <input type="file"  onchange="changeImage(this, 'image')" id="image" class="d-none form-control mt-3" name="image" >
                 </div>
                 <div class="clearfix"></div>
+                @foreach (config('translatable.locales') as $key => $locale)
+                <div class="col-md-6 pt-2">
+                    <div class="form-group">
+                        <label for="name">
+                            {{ __('lang.'.$locale.'.title') }}
+                        </label>
+                        {!! Form::text("{$locale}[title]", old("{$locale}[title]", optional($resource->translate($locale))->title), ['class' => 'form-control']) !!}
+                    </div>
+                </div>
+            @endforeach
 
+            @foreach (config('translatable.locales') as $key => $locale)
+                <div class="col-md-6 pt-2">
+                    <div class="form-group">
+                        <label for="name">
+                            {{ __('lang.'.$locale.'.description') }}
+                        </label>
+                        {!! Form::textarea("{$locale}[description]", old("{$locale}[description]", optional($resource->translate($locale))->description), ['class' => 'form-control']) !!}
+                    </div>
+                </div>
+            @endforeach
 
             </div>
             <div class="pt-4">

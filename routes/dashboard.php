@@ -60,15 +60,15 @@ Route::group(['middleware' => 'auth:admin'], function () use ($prefix) {
         });
     });
 
-    // route of certifications
-    Route::group(['prefix' => '/certifications'], function () use ($prefix) {
-        Route::controller('CertificationController')->group(function () use ($prefix)  {
-            Route::get('/', 'index')->name($prefix.'certification');
-            Route::get('/create', 'create')->name($prefix.'certification.create');
-            Route::post('/store', 'store')->name($prefix.'certification.store');
-            Route::get('/edit/{id}', 'edit')->name($prefix.'certification.edit');
-            Route::post('/update/{id}', 'update')->name($prefix.'certification.update');
-            Route::delete('/delete/{id}', 'destroy')->name($prefix.'certification.delete');
+    // route of awards
+    Route::group(['prefix' => '/awards'], function () use ($prefix) {
+        Route::controller('AwardController')->group(function () use ($prefix)  {
+            Route::get('/', 'index')->name($prefix.'award');
+            Route::get('/create', 'create')->name($prefix.'award.create');
+            Route::post('/store', 'store')->name($prefix.'award.store');
+            Route::get('/edit/{id}', 'edit')->name($prefix.'award.edit');
+            Route::post('/update/{id}', 'update')->name($prefix.'award.update');
+            Route::delete('/delete/{id}', 'destroy')->name($prefix.'award.delete');
         });
     });
 

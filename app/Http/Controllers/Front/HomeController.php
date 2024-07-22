@@ -30,5 +30,17 @@ class HomeController extends Controller
     }
 
 
+    public function award ()
+    {
+         // Get Meta & Banner From DB
+         $metaBanner =getMeta('home');
+         // Set Meta Home
+         metaGenerate($metaBanner);
+
+        return view('front.awards.index',[
+            'awards' => \App\Models\Award::get(),
+        ]);
+    }
+
 
 }
