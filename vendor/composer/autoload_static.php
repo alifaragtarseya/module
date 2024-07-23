@@ -362,8 +362,8 @@ class ComposerStaticInitd448d996e29c8f141572361f447476d3
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -469,8 +469,8 @@ class ComposerStaticInitd448d996e29c8f141572361f447476d3
         ),
         'Fruitcake\\Cors\\' => 
         array (
-            0 => __DIR__ . '/..' . '/fruitcake/php-cors/src',
-            1 => __DIR__ . '/..' . '/fruitcake/laravel-cors/src',
+            0 => __DIR__ . '/..' . '/fruitcake/laravel-cors/src',
+            1 => __DIR__ . '/..' . '/fruitcake/php-cors/src',
         ),
         'Faker\\' => 
         array (
@@ -552,8 +552,8 @@ class ComposerStaticInitd448d996e29c8f141572361f447476d3
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\Dashboard\\AboutController' => __DIR__ . '/../..' . '/app/Http/Controllers/Dashboard/AboutController.php',
         'App\\Http\\Controllers\\Dashboard\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/Dashboard/AuthController.php',
+        'App\\Http\\Controllers\\Dashboard\\AwardController' => __DIR__ . '/../..' . '/app/Http/Controllers/Dashboard/AwardController.php',
         'App\\Http\\Controllers\\Dashboard\\BrandController' => __DIR__ . '/../..' . '/app/Http/Controllers/Dashboard/BrandController.php',
-        'App\\Http\\Controllers\\Dashboard\\CertificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Dashboard/CertificationController.php',
         'App\\Http\\Controllers\\Dashboard\\CounterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Dashboard/CounterController.php',
         'App\\Http\\Controllers\\Dashboard\\FeatureController' => __DIR__ . '/../..' . '/app/Http/Controllers/Dashboard/FeatureController.php',
         'App\\Http\\Controllers\\Dashboard\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Dashboard/HomeController.php',
@@ -589,7 +589,7 @@ class ComposerStaticInitd448d996e29c8f141572361f447476d3
         'App\\Http\\Requests\\Dashboard\\ChangeStatus' => __DIR__ . '/../..' . '/app/Http/Requests/Dashboard/ChangeStatus.php',
         'App\\Http\\Requests\\Dashboard\\Slider\\StoreSlider' => __DIR__ . '/../..' . '/app/Http/Requests/Dashboard/Slider/StoreSlider.php',
         'App\\Http\\Requests\\Dashboard\\StoreAboutUS' => __DIR__ . '/../..' . '/app/Http/Requests/Dashboard/StoreAboutUS.php',
-        'App\\Http\\Requests\\Dashboard\\StoreBrand' => __DIR__ . '/../..' . '/app/Http/Requests/Dashboard/StoreBrand.php',
+        'App\\Http\\Requests\\Dashboard\\StoreAward' => __DIR__ . '/../..' . '/app/Http/Requests/Dashboard/StoreAward.php',
         'App\\Http\\Requests\\Dashboard\\StoreCounter' => __DIR__ . '/../..' . '/app/Http/Requests/Dashboard/StoreCounter.php',
         'App\\Http\\Requests\\Dashboard\\StoreFeature' => __DIR__ . '/../..' . '/app/Http/Requests/Dashboard/StoreFeature.php',
         'App\\Http\\Requests\\Dashboard\\StoreMetaTag' => __DIR__ . '/../..' . '/app/Http/Requests/Dashboard/StoreMetaTag.php',
@@ -602,6 +602,7 @@ class ComposerStaticInitd448d996e29c8f141572361f447476d3
         'App\\Models\\About' => __DIR__ . '/../..' . '/app/Models/About.php',
         'App\\Models\\AboutTranslation' => __DIR__ . '/../..' . '/app/Models/AboutTranslation.php',
         'App\\Models\\Admin' => __DIR__ . '/../..' . '/app/Models/Admin.php',
+        'App\\Models\\Award' => __DIR__ . '/../..' . '/app/Models/Award.php',
         'App\\Models\\Brand' => __DIR__ . '/../..' . '/app/Models/Brand.php',
         'App\\Models\\BrandTranslation' => __DIR__ . '/../..' . '/app/Models/BrandTranslation.php',
         'App\\Models\\Category' => __DIR__ . '/../..' . '/app/Models/Category.php',

@@ -28,8 +28,10 @@ class StoreAward extends FormRequest
             'image' => ['nullable','image','mimes:png,jpg,jpeg',Rule::requiredIf(function(){ return !isset($this->id);})],
             'ar.title' => ['required','string'],
             'ar.description' => ['nullable'],
+            'ar.short_description' => ['nullable'],
             'en.title' => ['required','string'],
             'en.description' => ['nullable'],
+            'en.short_description' => ['nullable'],
         ];
     }
 }

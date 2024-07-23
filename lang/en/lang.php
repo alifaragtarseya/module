@@ -288,7 +288,7 @@ return [
     'contact_us' => ' Contact Us',
     'facebook_link' => ' Facebook Link',
     'whatsapp' => ' Whatsapp',
-    'read_more' => ' Read More ..',
+    'read_more' => ' Read More ',
     'top_student' => '  Top Student',
     'classes' => '  Classes',
     'latest' => ' Latest',

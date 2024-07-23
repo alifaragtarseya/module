@@ -42,5 +42,17 @@ class HomeController extends Controller
         ]);
     }
 
+    public function showAward ($id)
+    {
+         // Get Meta & Banner From DB
+         $metaBanner =getMeta('home');
+         // Set Meta Home
+         metaGenerate($metaBanner);
+        $resource = \App\Models\Award::find($id);
+        return view('front.awards.show',[
+            'resource' => $resource,
+        ]);
+    }
+
 
 }

@@ -17,7 +17,7 @@
         <div class="col-md-12">
            @component('dashboard.layouts.includes.card' )
                @slot('tool')
-                   <a data-href="{{ route('admin.award.create') }}"  data-container=".table-modal" class="btn btn-modal btn-primary d-grid float-end text-white mb-2 ">
+                   <a href="{{ route('admin.award.create') }}"  data-container=".table-modal" class="btn  btn-primary d-grid float-end text-white mb-2 ">
                     <i class="  bx bx-plus"> {{ __('lang.add') }}</i>
 
                 </a>
@@ -38,10 +38,11 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>
                                             <img src="{{ asset($item->image) }}" class="border-8" width="100px" height="40px" alt="">
+                                            <b>{{ $item->title }}</b>
                                         </td>
 
                                         <td>
-                                            <a data-href="{{ route('admin.award.edit',$item->id) }}"  data-container=".table-modal" class="btn btn-modal text-white btn-primary btn-sm"><i class="bx bx-edit"></i></a>
+                                            <a href="{{ route('admin.award.edit',$item->id) }}"  data-container=".table-modal" class="btn  text-white btn-primary btn-sm"><i class="bx bx-edit"></i></a>
                                             <a href="{{ route('admin.award.delete',$item->id) }}" class="btn btn-danger sw-alert btn-sm"><i class="bx bx-trash"></i></a>
                                         </td>
                                    </tr>

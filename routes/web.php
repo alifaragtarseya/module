@@ -16,6 +16,7 @@ Route::get('/lang', 'LangController@index')->name('front.lang');
 
 Route::get('/', 'HomeController@index')->name('front.home');
 Route::get('/awards', 'HomeController@award')->name('front.award');
+Route::get('/awards/show/{id}', 'HomeController@showAward')->name('front.show.award');
 
 Route::get('/about', 'AboutController@index')->name('front.about');
 

@@ -13,7 +13,7 @@ class Award extends Model implements TranslatableContract
     use HasFactory;
 
 
-    public $translatedAttributes = ['title', 'description'];
+    public $translatedAttributes = ['title', 'description','short_description'];
     protected $fillable = ['image'];
 
 }
@@ -25,5 +25,5 @@ class AwardTranslation extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    protected $fillable = ['title', 'description'];
+    protected $fillable = ['title', 'description','short_description'];
 }
