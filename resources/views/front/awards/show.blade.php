@@ -33,7 +33,7 @@
             <div class="col-12 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="contact-info-box mb-30">
                     <div class="icon ">
-                        <img src="{{ asset($resource->image) }}" class="w3-round-xlarge" style="width: 100%;height: 450px; object-fit: cover" alt="">
+                        <img src="{{ asset($resource->image) }}" class="w3-round-xlarge" style="width: 100%;height: 450px; object-fit: contain" alt="">
                     </div>
                     <br>
                     <h3><b>{{ $resource->title }}</b></h3>
