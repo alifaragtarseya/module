@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Dashboard\StoreAward;
 use App\Models\Award;
+use App\Models\AwardImage;
 use Illuminate\Http\Request;
 
 class AwardController extends Controller
@@ -55,8 +56,15 @@ class AwardController extends Controller
     //    dd($inputs);
 
        // Save the data
-       $this->model->create($inputs);
-
+       $resource = $this->model->create($inputs);
+       if ($request->images) {
+        foreach ($request->images as $image) {
+            $item = uploadImage($image, config('path.AWARDS_PATH') . 'images/');
+            $resource->images()->create([
+                'image' => $item
+            ]);
+        }
+    }
        toast(__('lang.created'), 'success');
        return redirect()->route('admin.award');
     }
@@ -70,6 +78,9 @@ class AwardController extends Controller
      */
     public function edit($id)
     {
+        $title = __('lang.delete_item');
+        $text = __('lang.are_you_sure');
+        confirmDelete($title, $text);
         return view('dashboard.awards.form' ,[
             'resource' => $this->model->findOrFail($id)
         ]);
@@ -91,6 +102,14 @@ class AwardController extends Controller
             $inputs['image'] = uploadImage($inputs['image'], config('path.AWARDS_PATH'),$resource->id, $resource->image);
         }
         $resource->update($inputs);
+        if ($request->images) {
+            foreach ($request->images as $image) {
+                $item = uploadImage($image, config('path.AWARDS_PATH') . 'images/');
+                $resource->images()->create([
+                    'image' => $item
+                ]);
+            }
+        }
         toast(__('lang.updated'), 'success');
         return redirect()->route('admin.award');
     }
@@ -109,6 +128,13 @@ class AwardController extends Controller
         return redirect()->route('admin.award');
     }
 
-
+    public function deleteImage($id, $it)
+    {
+        $resource = AwardImage::where('award_id', $id)->where('id', $it)->first();
+        deleteImage($resource->image);
+        $resource->delete();
+        toast(__('lang.deleted'), 'success');
+        return redirect()->back();
+    }
 
 }

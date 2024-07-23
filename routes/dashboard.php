@@ -69,6 +69,8 @@ Route::group(['middleware' => 'auth:admin'], function () use ($prefix) {
             Route::get('/edit/{id}', 'edit')->name($prefix.'award.edit');
             Route::post('/update/{id}', 'update')->name($prefix.'award.update');
             Route::delete('/delete/{id}', 'destroy')->name($prefix.'award.delete');
+            Route::delete('{id}/delete-image/{it}', 'deleteImage')->name($prefix.'award.images.delete');
+
         });
     });
 

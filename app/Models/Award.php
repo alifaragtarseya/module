@@ -16,6 +16,10 @@ class Award extends Model implements TranslatableContract
     public $translatedAttributes = ['title', 'description','short_description'];
     protected $fillable = ['image'];
 
+    public function images(){
+        return $this->hasMany(AwardImage::class);
+    }
+
 }
 
 

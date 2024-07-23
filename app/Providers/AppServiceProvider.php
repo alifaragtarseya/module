@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
@@ -24,7 +25,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-      
+        //set pagination bootstrap
+        Paginator::useBootstrap();
+
         if (Schema::hasTable('services') && Schema::hasTable('categories')) {
             // $serviceCats = \App\Models\ServiceCategory::get();
             // view()->share('serviceCats', $serviceCats);

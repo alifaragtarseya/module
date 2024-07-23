@@ -5,6 +5,12 @@
 @extends('dashboard.layouts.master')
 
 
+@section('css')
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.8/css/fileinput.css" media="all"
+rel="stylesheet" type="text/css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.8/css/fileinput-rtl.css" media="all"
+rel="stylesheet" type="text/css" />
+@endsection
 
 @section('title')
     {{ $title }}
@@ -70,6 +76,46 @@
                     </div>
                 @endforeach
 
+                <hr>
+                <div class="row pt-3" id="ImageGallery">
+                    <br>
+                    <div class="col-md-12 main-color">
+                        <b>
+                            {{ __('lang.gallery') }}:
+                        </b>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="row ImageGallery">
+                            @if (isset($resource) && $resource->images->isNotEmpty())
+                                @foreach ($resource->images as $item)
+                                    <div class="col-sm-3 pt-2">
+                                        <div class="card">
+                                            <div class="card-body text-center">
+                                                <a href="{{ route('admin.award.images.delete', ['id' => $resource->id, 'it' => $item->id]) }}" class="btn btn-danger sw-alert btn-sm"><i class="bx bx-trash"></i></a>
+                                                <div class="preview_images prev_prod_imgs">
+                                                    <a href="{{ asset($item->image ?? null) }}">
+                                                        <img src="{{ asset($item->image ?? null) }}"  style="height: 200px; object-fit: cover" class="img-thumbnail img_pro_dis">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            @endif
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-sm-12">
+                        <div class="form-group @error('images') invalid @enderror">
+                            <div class="file-loading">
+                                <input id="file-1" type="file" name="images[]" multiple class="filesUploads"
+                                    data-show-upload="false" data-msg-placeholder="{{ __('lang.drop_images') }}"
+                                    data-browse-on-zone-click="true">
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 </div>
                 <div class="pt-4">
                     <button type="submit" class="btn w3-block btn-primary">{{ __('lang.save') }}</button>
@@ -84,4 +130,68 @@
 @endsection
 @section('js')
 
+<!-- File Input -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.8/js/fileinput.js" type="text/javascript">
+</script>
+<script>
+    $(".filesUploads").fileinput({
+        theme: 'fa',
+        language: 'ar',
+        uploadAsync: false,
+        rtl: true,
+        showUpload: false,
+        dropZoneTitle: '{{ __('lang.drop_images') }} <br/>',
+        dropZoneClickTitle: '{{ __('lang.or_click_to_select') }} <br/>',
+        showRemove: true,
+        showCancel: true,
+        autoReplace: false,
+        allowedFileExtensions: ['jpg', 'png', 'jpeg'],
+        overwriteInitial: false,
+        maxFileSize: 4000,
+        maxFileCount: "20",
+        msgFilesTooMany: '{{ __('lang.num_selected_img') }} <b>({n})</b> {{ __('lang.max_num') }} <b>{m}</b>!',
+        msgPlaceholder: '{{ __('lang.choose') }} {{ __('lang.image') }}',
+        slugCallback: function(filename) {
+            return filename.replace('(', '_').replace(']', '_');
+        },
+        browseLabel: '{{ __('lang.browse') }}',
+        browseClass: 'btn btn-primary',
+        removeLabel: '{{ __('lang.delete') }}',
+        minFileCount: 0,
+        validateInitialCount: true,
+
+    });
+
+    $(".file").fileinput({
+        theme: 'fa',
+        language: 'ar',
+        rtl: true,
+        showUpload: false,
+        fileActionSettings: {
+            showUpload: false,
+        },
+        dropZoneTitle: '{{ __('lang.drop_images') }} <br/>',
+        dropZoneClickTitle: '{{ __('lang.or_click_to_select') }} <br/>',
+        showRemove: true,
+        allowedFileExtensions: ['jpg', 'png', 'jpeg'],
+        overwriteInitial: false,
+        maxFileSize: 4000,
+        maxFileCount: "@isset($data) {{ 10 - $data->images_count }}) @else 10 @endisset",
+        msgFilesTooMany: '{{ __('lang.num_selected_img') }} <b>({n})</b> {{ __('lang.max_num') }} <b>{m}</b>!',
+        msgPlaceholder: '{{ __('lang.choose') }} {{ __('lang.image') }}',
+        slugCallback: function(filename) {
+            return filename.replace('(', '_').replace(']', '_');
+        },
+        browseLabel: '{{ __('lang.browse') }}',
+        browseClass: 'btn blue',
+        removeLabel: '{{ __('lang.delete') }}',
+    });
+</script>
+<!-- Meta & SM Desc Length -->
+<script>
+    $('.max_length').keyup(function() {
+        var length = $(this).attr('maxlength') - $(this).val().length;
+        $(this).parent().find('.remChars').text(length);
+    });
+</script>
 @endsection

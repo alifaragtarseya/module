@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use App\Models\About;
 use App\Models\Admin;
+use App\Models\AwardImage;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 
@@ -51,6 +52,7 @@ class HomeController extends Controller
         $resource = \App\Models\Award::find($id);
         return view('front.awards.show',[
             'resource' => $resource,
+            'images' => AwardImage::where('award_id',$id)->paginate(6),
         ]);
     }
 
