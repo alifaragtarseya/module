@@ -1,6 +1,9 @@
 @extends('front.layouts.master')
 @section('css')
+<link rel="stylesheet" href="{{ asset('front/css/viewer.css') }}" crossorigin="anonymous">
+
 <style>
+
     ul.pagination{
         justify-content: center;
         gap: 15px
@@ -58,14 +61,14 @@
                     </div>
                 </div>
 
-                <div class="row pt-2">
+                <div class="row pt-2" id="galley">
 
                     @foreach ($images as $item)
                         <div class="col-md-6 col-lg-4 m-auto pt-2">
                             <div class="card">
                                 <div class="card-body p-2 text-center">
                                     <div class=" border-0">
-                                            <img src="{{ asset($item->image ?? null) }}"  style="height: 300px;width: 100%; object-fit: cover" class="img-thumbnail img_pro_dis border-0">
+                                            <img src="{{ asset($item->image ?? null) }}" data-original="{{ asset($item->image) }}" style="height: 300px;width: 100%; object-fit: cover;cursor: zoom-in" class="img-thumbnail img_pro_dis border-0">
                                     </div>
                                 </div>
                             </div>
@@ -83,6 +86,89 @@
 </div>
 
 
+@endsection
+@section('js')
+<script src="{{ asset('front/js/viewer.js') }}"></script>
+
+<script src="{{ asset('front/js/jquery-viewer.js') }}"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', function() {
+        var galley = document.getElementById('galley');
+        var maxOffsetPercentage = 0.9;
+        var viewer = new Viewer(galley, {
+            url: 'data-original',
+            backdrop: 'static',
+            move: function(event) {
+                var viewerData = viewer.viewerData;
+                var imageData = viewer.imageData;
+                var maxOffsetHorizontal = viewerData.width * maxOffsetPercentage;
+                var maxOffsetVertical = viewerData.height * maxOffsetPercentage;
+                var detail = event.detail;
+                var left = detail.x;
+                var top = detail.y;
+                var right = viewerData.width - (left + imageData.width);
+                var bottom = viewerData.height - (top + imageData.height);
+
+                if (
+                    // Move left
+                    (detail.x < detail.oldX && right > 0 && right > maxOffsetHorizontal)
+
+                    // Move right
+                    ||
+                    (detail.x > detail.oldX && left > 0 && left > maxOffsetHorizontal)
+
+                    // Move up
+                    ||
+                    (detail.y < detail.oldY && bottom > 0 && bottom > maxOffsetVertical)
+
+                    // Move down
+                    ||
+                    (detail.y > detail.oldY && top > 0 && top > maxOffsetVertical)
+                ) {
+                    event.preventDefault();
+                }
+            },
+            zoomed: function(event) {
+                var detail = event.detail;
+
+                // Zoom out
+                if (detail.ratio < detail.oldRatio) {
+                    var viewerData = viewer.viewerData;
+                    var imageData = viewer.imageData;
+                    var maxOffsetHorizontal = viewerData.width * maxOffsetPercentage;
+                    var maxOffsetVertical = viewerData.height * maxOffsetPercentage;
+                    var left = imageData.x;
+                    var top = imageData.y;
+                    var right = viewerData.width - (left + imageData.width);
+                    var bottom = viewerData.height - (top + imageData.height);
+                    var x = 0;
+                    var y = 0;
+
+                    if (right > 0 && right > maxOffsetHorizontal) {
+                        x = maxOffsetHorizontal - right;
+                    }
+
+                    if (left > 0 && left > maxOffsetHorizontal) {
+                        x = maxOffsetHorizontal - left;
+                    }
+
+                    if (bottom > 0 && bottom > maxOffsetVertical) {
+                        y = bottom - maxOffsetVertical;
+                    }
+
+                    if (top > 0 && top > maxOffsetVertical) {
+                        y = top - maxOffsetVertical;
+                    }
+
+                    // Move the image into view if it is invisible
+                    if (x !== 0 || y !== 0) {
+                        viewer.move(x, y);
+                    }
+                }
+            },
+        });
+    });
+</script>
 @endsection
 
 
