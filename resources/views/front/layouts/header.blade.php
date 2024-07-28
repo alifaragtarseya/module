@@ -10,7 +10,7 @@
         <h1 class="m-0"><img class="img-fluid me-3" style="width: 150px;" src="{{ asset(getSettingValue('logo')) }}" alt=""></h1>
     </a>
     <div class="collapse navbar-collapse" id="navbarCollapse">
-        <div class="navbar-nav ms-auto  rounded pe-4 py-3 py-lg-0">
+        <div class="navbar-nav m{{ isRtl()?'e':'s' }}-auto  rounded pe-4 py-3 py-lg-0">
             {{-- <a href="{{ url('/') }}" class="nav-item nav-link {{ request()->routeIs('front.home') ? 'active' : '' }}">{{ __('lang.home') }}</a> --}}
             <a href="{{ route('front.about') }}" class="nav-item nav-link {{ request()->routeIs('front.about') ? 'active  ' : '' }}">{{ __('lang.studio') }}</a>
             <a href="{{ route('front.project') }}"  class="nav-link {{ request()->routeIs('front.project*') ? 'active' : '' }}" >{{ __('lang.projects') }}</a>
@@ -22,7 +22,6 @@
 
             <a href="{{ route('front.contact') }}" class="nav-item nav-link {{ request()->routeIs('front.contact') ? 'active' : '' }}">{{ __('lang.contact') }}</a>
 
-            {{-- @if (isMobile())
             <div class=" nav-item dropdown">
                 <a class="nav-link text-dark dropdown-toggle" data-bs-toggle="dropdown"
                    >
@@ -37,6 +36,7 @@
                     </a>
                 </div>
             </div>
+            {{-- @if (isMobile())
             @endif--}}
         </div>
     </div>
