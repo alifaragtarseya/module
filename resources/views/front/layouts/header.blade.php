@@ -22,19 +22,12 @@
 
             <a href="{{ route('front.contact') }}" class="nav-item nav-link {{ request()->routeIs('front.contact') ? 'active' : '' }}">{{ __('lang.contact') }}</a>
 
-            <div class=" nav-item dropdown">
-                <a class="nav-link text-dark dropdown-toggle" data-bs-toggle="dropdown"
-                   >
-                    <span class="">       {{ App::getLocale() == 'en' ?'English' : 'العربية' }} </span>
+            <div class=" nav-item ">
+                <a class="nav-link text-dark" href="{{ route('front.lang') }}?lang={{ App::getLocale() == 'en' ?'ar' : 'en' }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe feather-20"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                    <span class="">{{ App::getLocale() == 'en' ?'ع' : 'ENG' }} </span>
                 </a>
-                <div class="dropdown-menu p-0" style="min-width: 225px">
-                    <a class="dropdown-item w3-border-bottom p-3" href="{{ route('front.lang') }}?lang=en">
-                        <i>English</i>
-                    </a>
-                    <a class="dropdown-item p-3" href="{{ route('front.lang') }}?lang=ar">
-                        <i>العربية</i>
-                    </a>
-                </div>
+
             </div>
             {{-- @if (isMobile())
             @endif--}}

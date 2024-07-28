@@ -24,14 +24,7 @@
      <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
      <link href="https://db.onlinewebfonts.com/a/knx47Mn2" rel="stylesheet" type="text/css"/>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Source+Sans+3&family=Tajawal:wght@500&display=swap');
-        body,html,*{
-            font-family: "Tajawal", sans-serif;
-            font-weight: 600 !important;
-            font-style: normal;
-            letter-spacing: 1px;
-            line-height: 100%;
-        }
+
             :root {
                 --primary:#000;
                 --secondary: #ECF2F4;

@@ -6,7 +6,7 @@
             <div class="col-md-12 pt-5  wow fadeInDown">
                 <div class="">
                     <h3 class="bold "> <b class="main-color">{{ __('lang.our_services') }}</b></h3>
-                    <h3 class="{{ isMobile() ? '' : 'w-50' }} bold text-dark">
+                    <p class="{{ isMobile() ? '' : 'w-50' }} bold text-dark">
                         {{ __('lang.service_desc')}}</h3>
                 </div>
             </div>
