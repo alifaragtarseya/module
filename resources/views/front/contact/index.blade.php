@@ -41,7 +41,17 @@
     border-radius: 20px;
     box-shadow: 0 0 13px -3px;
 }
+
     </style>
+    @if (isRtl())
+    <style>
+        .form-floating>label {
+            right: 0 !important;
+            left: unset !important;
+        }
+    </style>
+
+    @endif
 @endsection
 @section('content')
 
