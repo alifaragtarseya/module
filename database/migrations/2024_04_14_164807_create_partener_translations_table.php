@@ -13,8 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('parteners', function (Blueprint $table) {
-            $table->string('title')->nullable();
+        Schema::create('partener_translations', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->foreignId('partener_id')->constrained('parteners')->cascadeOnDelete();
+            $table->string('locale')->index();
+            $table->timestamps();
         });
     }
 
@@ -25,7 +29,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('parteners', function (Blueprint $table) {
+        Schema::table('partener_translations', function (Blueprint $table) {
             //
         });
     }

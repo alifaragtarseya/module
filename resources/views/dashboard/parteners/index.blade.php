@@ -38,6 +38,7 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>
                                             <img src="{{ asset($item->image) }}" class="border-8" width="100px" height="40px" alt="">
+                                            {{ $item->title }}
                                         </td>
 
                                         <td>

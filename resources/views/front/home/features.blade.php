@@ -1,4 +1,4 @@
-<section class="section--product pt-5">
+<section class="section--product">
     <div class="bg-white ">
         <div class="container mb-5">
             <h2 class=""> <b class="main-color">{{ __('lang.latest_news') }}</b></h2>

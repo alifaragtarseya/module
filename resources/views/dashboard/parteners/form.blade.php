@@ -31,15 +31,18 @@
                 <div class="clearfix"></div>
 
 
-            </div>
-
-            <div class="col-md-12">
-                <div class="form-group">
-                    {!! Form::label('title', __('lang.title') , ['class' => 'form-label'] ) !!} <br>
-                    {!! Form::text('title', old('title', $resource->title), ['class' => 'form-control']) !!}
+                @foreach (config('translatable.locales') as $key => $locale)
+                <div class="col-md-6 pt-2">
+                    <div class="form-group">
+                        <label for="name">
+                            {{ __('lang.'.$locale.'.title') }}
+                        </label>
+                        {!! Form::text("{$locale}[title]", old("{$locale}[title]", optional($resource->translate($locale))->title), ['class' => 'form-control']) !!}
+                    </div>
                 </div>
-
+            @endforeach
             </div>
+
             <div class="pt-4">
                 <button type="submit" class="btn w3-block btn-primary">{{ __('lang.save') }}</button>
             </div>

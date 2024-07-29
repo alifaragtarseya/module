@@ -175,6 +175,13 @@
 
 
 
+      {{-- place --}}
+      <li class="menu-item {{ request()->routeIs('admin.partener*')?'active':'' }}">
+        <a href="{{ route('admin.partener') }}"  class="menu-link  ">
+            <i class="menu-icon tf-icons bx bx-box"></i>
+          <div data-i18n="places">{{ __('lang.parteners') }}</div>
+        </a>
+      </li>
       {{-- award --}}
       <li class="menu-item {{ request()->routeIs('admin.award*')?'active':'' }}">
         <a href="{{ route('admin.award') }}"  class="menu-link  ">

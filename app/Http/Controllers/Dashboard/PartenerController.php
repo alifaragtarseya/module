@@ -49,7 +49,8 @@ class PartenerController extends Controller
        // Validate the image
        $inputs = $request->validate([
            'image' => 'required|image|mimes:jpeg,png,jpg',
-           'title' => 'required',
+           'ar.*' => 'required',
+           'en.*' => 'required',
        ]);
        $id = $this->model->max('id')+1;
        // Handle the image upload
@@ -89,12 +90,13 @@ class PartenerController extends Controller
     {
         $inputs = $request->validate([
             'image' => 'nullable|image|mimes:jpeg,png,jpg',
-            'title' => 'required',
+            'ar.*' => 'required',
+            'en.*' => 'required',
         ]);
         // dd($inputs);
         $resource = $this->model->findOrFail($id);
+        // dd($inputs);
         if(isset($inputs['image'])){
-
             $inputs['image'] = uploadImage($inputs['image'], config('path.PARTENER_PATH'),$resource->id, $resource->image);
         }
         $resource->update($inputs);

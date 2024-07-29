@@ -166,7 +166,7 @@ return [
     'contact_us' => 'تواصل معنا',
     'facebook_link' => 'رابط فيسبوك',
     'whatsapp' => 'رقم الواتس اب',
-    'read_more' => 'اقراء المزيد ',
+    'read_more' => ' اقرأ المزيد ',
     'top_student' => ' الاوائل',
     'classes' => ' الصفوف الدراسية',
     'latest' => 'أحدث',
